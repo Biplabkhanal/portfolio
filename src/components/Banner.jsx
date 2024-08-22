@@ -1,18 +1,17 @@
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/header-img.svg";
+import myImg from "../assets/img/biplab.jpg";
 
 import { useEffect, useState } from "react";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
-
+export const handleClick = () => {
+  // Scroll to the contact section
+  const contactSection = document.getElementById("contacts");
+  contactSection.scrollIntoView({ behavior: "smooth" });
+};
 const Banner = () => {
-  const handleClick = () => {
-    // Scroll to the contact section
-    const contactSection = document.getElementById("contacts");
-    contactSection.scrollIntoView({ behavior: "smooth" });
-  };
-
   const toRotate = ["Frontend Developer", "Web Devloper"];
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleteing] = useState(false);
@@ -79,9 +78,9 @@ const Banner = () => {
                     design and a love for clean code, I enjoy turning ideas into
                     elegant and functional websites and applications.
                   </p>
-                  <button onClick={handleClick}>
+                  {/* <button onClick={handleClick}>
                     Let’s Connect <ArrowRightCircle size={25} />
-                  </button>
+                  </button> */}
                 </div>
               )}
             </TrackVisibility>
@@ -94,7 +93,11 @@ const Banner = () => {
                     isVisible ? "animate__animated animate__zoomIn" : ""
                   }
                 >
-                  <img src={headerImg} alt="My Photo" />
+                  <img
+                    style={{ borderRadius: "64px" }}
+                    src={myImg}
+                    alt="My Photo"
+                  />
                 </div>
               )}
             </TrackVisibility>

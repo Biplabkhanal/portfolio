@@ -4,7 +4,11 @@ import {
   SiJavascript,
   SiReact,
   SiBootstrap,
-  SiPhp,
+  SiAntdesign,
+  SiRedux,
+  SiReactquery,
+  SiGit,
+  SiGithub,
 } from "react-icons/si";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -41,8 +45,7 @@ const Skills = () => {
                 web development technologies and frameworks,
                 <br />
                 enabling me to create visually appealing and responsive web
-                applications. <br />
-                My skills include:
+                applications.
               </p>
               <Carousel
                 responsive={responsive}
@@ -67,11 +70,28 @@ const Skills = () => {
                 </div>
                 <div className="item">
                   <SiReact size={64} />
-                  <h5>React.js</h5>
+                  <h5>React JS</h5>
                 </div>
                 <div className="item">
-                  <SiPhp size={64} />
-                  <h5>PHP</h5>
+                  <SiRedux size={64} />
+                  <h5>Redux</h5>
+                </div>
+                <div className="item">
+                  <SiReactquery size={64} />
+                  <h5>React Query</h5>
+                </div>
+
+                <div className="item">
+                  <SiAntdesign size={64} />
+                  <h5>Ant Design</h5>
+                </div>
+                <div className="item">
+                  <SiGit size={64} />
+                  <h5>Git</h5>
+                </div>
+                <div className="item">
+                  <SiGithub size={64} />
+                  <h5>Github</h5>
                 </div>
               </Carousel>
             </div>

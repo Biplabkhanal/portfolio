@@ -7,42 +7,67 @@ import projImg4 from "../assets/img/project-img4.jpg";
 import projImg5 from "../assets/img/project-img5.jpg";
 import projImg6 from "../assets/img/project-img6.jpg";
 import colorSharp2 from "../assets/img/color-sharp2.png";
+import anydone1 from "../assets/img/anydone1.png";
+import anydone2 from "../assets/img/anydpne2.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 
 const Projects = () => {
-  const projects = [
+  const projectsTab1 = [
     {
       title: "Travel and Tour Management system",
       description:
         "Design & Development of travel website from which we can book the destinations to visit.",
       imgUrl: projImg1,
-    },
-    {
-      title: "Traffic Symbol Recognition",
-      description: "Done as a final year project.",
-      imgUrl: projImg2,
-    },
-    {
-      title: "Myntra-Clone",
-      description: "Development of myntra-clone.",
-      imgUrl: projImg3,
+      githubLink: "https://github.com/Biplabkhanal/Travel-Website",
     },
     {
       title: "Travel and Tour Management system",
       description:
         "Design & Development of travel website from which we can book the destinations to visit.",
       imgUrl: projImg4,
+      githubLink: "https://github.com/Biplabkhanal/Travel-Website",
+    },
+    {
+      title: "Traffic Symbol Recognition",
+      description: "Done as a final year project.",
+      imgUrl: projImg2,
+      githubLink: "https://github.com/Biplabkhanal/Traffic-Symbol-Recognition",
     },
     {
       title: "Traffic Symbol Recognition",
       description: "Done as a final year project.",
       imgUrl: projImg5,
+      githubLink: "https://github.com/Biplabkhanal/Traffic-Symbol-Recognition",
     },
+    {
+      title: "Myntra-Clone",
+      description: "Development of myntra-clone.",
+      imgUrl: projImg3,
+      githubLink: "https://github.com/Biplabkhanal/MyntraClone-using-ReactJS",
+    },
+
     {
       title: "Myntra-Clone",
       description: "Development of myntra-clone",
       imgUrl: projImg6,
+      githubLink: "https://github.com/Biplabkhanal/MyntraClone-using-ReactJS",
+    },
+  ];
+  const projectsTab2 = [
+    {
+      title: "Anydone Website",
+      description:
+        "Done this project during my internship period, in which i had built different pages such as landing page, about us, flowcess and changed other different contents.",
+      imgUrl: anydone1,
+      githubLink: "https://anydone.com/",
+    },
+    {
+      title: "Anydone Website",
+      description:
+        "Done this project during my internship period, in which i had built different pages such as landing page, about us, flowcess and changed other different contents.",
+      imgUrl: anydone2,
+      githubLink: "https://anydone.com/",
     },
   ];
 
@@ -73,7 +98,7 @@ const Projects = () => {
                       className="nav-pills mb-5 justify-content-center align-items-center"
                       id="pills-tab"
                     >
-                      <Nav.Item>
+                      <Nav.Item className="me-3">
                         <Nav.Link eventKey="first">Tab 1</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
@@ -88,30 +113,17 @@ const Projects = () => {
                     >
                       <Tab.Pane eventKey="first">
                         <Row>
-                          {projects.map((project, index) => {
+                          {projectsTab1.map((project, index) => {
                             return <ProjectCard key={index} {...project} />;
                           })}
                         </Row>
                       </Tab.Pane>
                       <Tab.Pane eventKey="second">
-                        <p id="project-intro" className="animate__animated">
-                          <br />
-                          I've developed a Travel and Tour Management System,
-                          enabling efficient travel planning and management for
-                          users using PHP.
-                          <br />
-                          <br />
-                          This was followed by a Traffic Symbol Recognition
-                          system, utilizing machine learning techniques to
-                          recognize traffic symbols in images.This is done by
-                          using HTML,CSS,Bootstrap,Javascript and Machine
-                          learning algorithm CNN.
-                          <br />
-                          <br />
-                          Additionally, I've created a Myntra clone using
-                          React.js, offering a seamless shopping experience
-                          similar to the popular e-commerce platform.
-                        </p>
+                        <Row>
+                          {projectsTab2.map((project, index) => {
+                            return <ProjectCard key={index} {...project} />;
+                          })}
+                        </Row>
                       </Tab.Pane>
                     </Tab.Content>
                   </Tab.Container>
