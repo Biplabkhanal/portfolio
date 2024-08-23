@@ -1,14 +1,11 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import ProjectCard from "./ProjectCard";
-import projImg1 from "../assets/img/project-img1.jpg";
-import projImg2 from "../assets/img/project-img2.jpg";
 import projImg3 from "../assets/img/project-img3.jpg";
 import projImg4 from "../assets/img/project-img4.jpg";
 import projImg5 from "../assets/img/project-img5.jpg";
-import projImg6 from "../assets/img/project-img6.jpg";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import anydone1 from "../assets/img/anydone1.png";
-import anydone2 from "../assets/img/anydpne2.png";
+import treelytics from "../assets/img/treelytics.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 
@@ -18,25 +15,14 @@ const Projects = () => {
       title: "Travel and Tour Management system",
       description:
         "Design & Development of travel website from which we can book the destinations to visit.",
-      imgUrl: projImg1,
-      githubLink: "https://github.com/Biplabkhanal/Travel-Website",
-    },
-    {
-      title: "Travel and Tour Management system",
-      description:
-        "Design & Development of travel website from which we can book the destinations to visit.",
       imgUrl: projImg4,
       githubLink: "https://github.com/Biplabkhanal/Travel-Website",
     },
+
     {
       title: "Traffic Symbol Recognition",
-      description: "Done as a final year project.",
-      imgUrl: projImg2,
-      githubLink: "https://github.com/Biplabkhanal/Traffic-Symbol-Recognition",
-    },
-    {
-      title: "Traffic Symbol Recognition",
-      description: "Done as a final year project.",
+      description:
+        "Done as a final year project. Used HTML, CSS, Bootstrap, JavaScript, and Machine Learning algirtihm CNN to predict the traffic symbol.",
       imgUrl: projImg5,
       githubLink: "https://github.com/Biplabkhanal/Traffic-Symbol-Recognition",
     },
@@ -48,28 +34,27 @@ const Projects = () => {
     },
 
     {
-      title: "Myntra-Clone",
-      description: "Development of myntra-clone",
-      imgUrl: projImg6,
-      githubLink: "https://github.com/Biplabkhanal/MyntraClone-using-ReactJS",
-    },
-  ];
-  const projectsTab2 = [
-    {
       title: "Anydone Website",
       description:
-        "Done this project during my internship period, in which i had built different pages such as landing page, about us, flowcess and changed other different contents.",
+        "Done this project during my internship period, in which i had built different pages such as landing page, about us, flowcess and changed other different contents using Bootstrap components, HTML and JavaScript.",
       imgUrl: anydone1,
       githubLink: "https://anydone.com/",
     },
     {
-      title: "Anydone Website",
+      title: "Treelytics",
       description:
-        "Done this project during my internship period, in which i had built different pages such as landing page, about us, flowcess and changed other different contents.",
-      imgUrl: anydone2,
-      githubLink: "https://anydone.com/",
+        "Done this project during my internship period, which a web based data analysis and visualization platform where i had used different ant design components, redux toolkit, react query, canvas, and styled component.",
+      imgUrl: treelytics,
     },
   ];
+  // const projectsTab2 = [
+  //   {
+  //     title: "Treelytics",
+  //     description:
+  //       "Done this project during my internship period, which a web based data analysis and visualization platform where i had used different ant design components, redux toolkit, react query, canvas, and styled component.",
+  //     imgUrl: treelytics,
+  //   },
+  // ];
 
   return (
     <section className="project" id="projects">
@@ -101,9 +86,9 @@ const Projects = () => {
                       <Nav.Item className="me-3">
                         <Nav.Link eventKey="first">Tab 1</Nav.Link>
                       </Nav.Item>
-                      <Nav.Item>
+                      {/* <Nav.Item>
                         <Nav.Link eventKey="second">Tab 2</Nav.Link>
-                      </Nav.Item>
+                      </Nav.Item> */}
                     </Nav>
                     <Tab.Content
                       id="slideInUp"
@@ -118,13 +103,13 @@ const Projects = () => {
                           })}
                         </Row>
                       </Tab.Pane>
-                      <Tab.Pane eventKey="second">
+                      {/* <Tab.Pane eventKey="second">
                         <Row>
                           {projectsTab2.map((project, index) => {
                             return <ProjectCard key={index} {...project} />;
                           })}
                         </Row>
-                      </Tab.Pane>
+                      </Tab.Pane> */}
                     </Tab.Content>
                   </Tab.Container>
                 </div>

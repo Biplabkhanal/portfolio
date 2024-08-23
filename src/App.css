@@ -115,9 +115,12 @@ nav.navbar.scrolled {
   }
   nav.navbar .navbar-nav .nav-link.navbar-link {
     letter-spacing: 0px !important ;
-    padding: 0 15px !important;
-    font-size: 18px;
-    opacity: 0.75;
+    padding: 0 7px !important;
+    font-size: 15px !important;
+    opacity: 0.4 !important;
+  }
+  nav.navbar .navbar-nav a.nav-link.navbar-link.active {
+    opacity: 3 !important;
   }
   nav.navbar.scrolled {
     padding: 18px 0;
@@ -146,11 +149,28 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
   letter-spacing: 0.8px;
   padding: 0 25px;
   font-size: 18px;
-  opacity: 0.75;
+  opacity: 0.4;
 }
-nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
+
+nav.navbar .navbar-nav a.nav-link.navbar-link {
+  position: relative;
+  padding-bottom: 5px;
+}
+
 nav.navbar .navbar-nav a.nav-link.navbar-link.active {
-  opacity: 1;
+  opacity: 3;
+}
+
+nav.navbar .navbar-nav a.nav-link.navbar-link:hover::after,
+nav.navbar .navbar-nav a.nav-link.navbar-link.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 2px;
+  background-color: #fff;
 }
 
 .social-icon a {
@@ -179,7 +199,7 @@ nav.navbar .navbar-nav a.nav-link.navbar-link.active {
   transform: scale(1);
 }
 .social-icon a img {
-  width: 40%;
+  width: 47%;
   z-index: 1;
   transition: 0.3s ease-in-out;
 }
@@ -381,6 +401,64 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   width: 40%;
   z-index: -4;
 }
+/**work experience**/
+.work-experience {
+  padding: 1rem 2rem;
+  background-color: black;
+}
+.work-experience h2 {
+  font-size: 45px;
+  font-weight: 700;
+}
+.work-experience p {
+  color: #b8b8b8;
+}
+
+.text-secondary {
+  color: #e6dedd;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+.vertical-timeline-element-content {
+  background: #1d1836;
+  color: #ffffff;
+  border-radius: 1.2em !important;
+}
+.vertical-timeline-element-content p {
+  margin: 0 0 0.5em 0 !important;
+}
+
+.vertical-timeline-element-content-arrow {
+  border-right: 7px solid #232631;
+}
+.vertical-timeline-element-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.icon-img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+.vertical-timeline-element-content ul li {
+  margin-bottom: 10px;
+}
+
+.vertical-timeline-element-content ul li:last-child {
+  margin-bottom: 0;
+}
+/**work experience**/
 
 /************ Projects Css ************/
 @keyframes revealText {
@@ -468,7 +546,12 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   position: relative;
   border-radius: 30px;
   overflow: hidden;
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
+  margin: 25px;
+  z-index: 1;
+  transition: transform 0.8s ease-in-out;
+  transform-style: preserve-3d;
+  border: groove #3c1d2f;
 }
 .proj-imgbx::before {
   content: "";
@@ -483,6 +566,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   height: 100%;
   cursor: pointer;
 }
+.proj-imgbx:hover {
+  z-index: 10;
+  transform: scale(1.05) rotateY(15deg);
+}
+.proj-imgbx:hover:nth-child(even) {
+  transform: scale(1.05) rotateY(-15deg);
+}
 .proj-txtx {
   position: absolute;
   text-align: center;
@@ -492,6 +582,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   transition: 0.5s ease-in-out;
   opacity: 0;
   width: 100%;
+  padding: 10px;
 }
 .proj-imgbx:hover .proj-txtx {
   top: 50%;

@@ -1,17 +1,15 @@
-import {
-  SiHtml5,
-  SiCss3,
-  SiJavascript,
-  SiReact,
-  SiBootstrap,
-  SiAntdesign,
-  SiRedux,
-  SiReactquery,
-  SiGit,
-  SiGithub,
-} from "react-icons/si";
+import { SiBootstrap, SiReactquery } from "react-icons/si";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import HTMLIcon from "../assets/img/html-5-svgrepo-com.svg";
+import CSSIcon from "../assets/img/css-3-svgrepo-com.svg";
+import ReactIcon from "../assets/img/react-svgrepo-com.svg";
+import ReduxIcon from "../assets/img/redux-svgrepo-com.svg";
+import GitIcon from "../assets/img/git-svgrepo-com.svg";
+import GitHubIcon from "../assets/img/github-color-svgrepo-com.svg";
+import ANT from "../assets/img/ant-design-svgrepo-com.svg";
+import JS from "../assets/img/js-svgrepo-com.svg";
+import BootStratpIcon from "../assets/img/bootstrap-svgrepo-com.svg";
 
 const Skills = () => {
   const responsive = {
@@ -53,44 +51,50 @@ const Skills = () => {
                 className="owl-carousel owl-theme skill-slider"
               >
                 <div className="item">
-                  <SiHtml5 size={64} />
+                  <img src={HTMLIcon} alt="HTML" />
                   <h5>HTML</h5>
                 </div>
                 <div className="item">
-                  <SiCss3 size={64} />
+                  <img src={CSSIcon} alt="CSS" />
                   <h5>CSS</h5>
                 </div>
                 <div className="item">
-                  <SiBootstrap size={64} />
+                  <img src={BootStratpIcon} alt="Bootstarp" />
                   <h5>Bootstrap</h5>
                 </div>
                 <div className="item">
-                  <SiJavascript size={64} />
+                  <img src={JS} alt="JavaScript" />
                   <h5>JavaScript</h5>
                 </div>
                 <div className="item">
-                  <SiReact size={64} />
+                  <img src={ReactIcon} alt="React JS" />
                   <h5>React JS</h5>
                 </div>
                 <div className="item">
-                  <SiRedux size={64} />
+                  <img src={ReduxIcon} alt="Redux" />
                   <h5>Redux</h5>
                 </div>
                 <div className="item">
-                  <SiReactquery size={64} />
+                  <SiReactquery
+                    style={{
+                      color: "#FF4154",
+                      width: "150px",
+                      height: "175px",
+                    }}
+                  />
                   <h5>React Query</h5>
                 </div>
 
                 <div className="item">
-                  <SiAntdesign size={64} />
+                  <img src={ANT} alt="Ant Design" />
                   <h5>Ant Design</h5>
                 </div>
                 <div className="item">
-                  <SiGit size={64} />
+                  <img src={GitIcon} alt="Git" />
                   <h5>Git</h5>
                 </div>
                 <div className="item">
-                  <SiGithub size={64} />
+                  <img src={GitHubIcon} alt="Github" />
                   <h5>Github</h5>
                 </div>
               </Carousel>
