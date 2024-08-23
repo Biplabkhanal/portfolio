@@ -8,7 +8,7 @@ const ProjectCard = ({ title, description, imgUrl, githubLink }) => {
     <>
       <Col size={12} sm={6} md={6} className="d-md-block d-none">
         <div className="proj-imgbx " onClick={handleRedirect}>
-          <img style={{ height: "350px" }} src={imgUrl} />
+          <img style={{ height: "390px" }} src={imgUrl} />
           <div className="proj-txtx">
             <h4>{title}</h4>
             <span>{description}</span>
