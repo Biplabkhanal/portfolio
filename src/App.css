@@ -410,8 +410,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-size: 45px;
   font-weight: 700;
 }
-.work-experience p {
+.work-experience a {
   color: #b8b8b8;
+  text-decoration: none;
+
+  /* margin-bottom: 10px; */
 }
 
 .text-secondary {
@@ -431,7 +434,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   color: #ffffff;
   border-radius: 1.2em !important;
 }
-.vertical-timeline-element-content p {
+.vertical-timeline-element-content a {
   margin: 0 0 0.5em 0 !important;
 }
 
@@ -457,6 +460,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .vertical-timeline-element-content ul li:last-child {
   margin-bottom: 0;
+}
+
+.vertical-timeline-element-content ul li:first-child {
+  margin-top: 10px;
 }
 /**work experience**/
 

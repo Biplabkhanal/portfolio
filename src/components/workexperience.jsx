@@ -43,7 +43,13 @@ const WorkExperience = () => {
                     May 2024 - August 2024
                   </span>
                 </div>
-                <p className="text-secondary">Treeleaf.ai</p>
+                <a
+                  className="text-secondary"
+                  href="https://treeleaf.ai/"
+                  target="blank"
+                >
+                  Treeleaf.ai
+                </a>
                 <ul style={{ fontSize: "15px" }}>
                   <li>
                     Utilized Ant Design, React Query, Redux Toolkit, Recharts,
