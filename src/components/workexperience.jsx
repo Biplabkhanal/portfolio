@@ -5,6 +5,7 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import RenderLogo from "../assets/img/renderbooking.png";
 
 const WorkExperience = () => {
   return (
@@ -66,9 +67,43 @@ const WorkExperience = () => {
                     Made different pages of anydone website i.e. Landing page,
                     About us page, Flowcess page.
                   </li>
+                </ul>
+              </VerticalTimelineElement>
+              <VerticalTimelineElement
+                iconStyle={{ background: "#383E56", color: "#fff" }}
+                icon={
+                  <div className="vertical-timeline-element-icon">
+                    <img
+                      src={RenderLogo}
+                      alt="Renderbooking"
+                      className="icon-img"
+                    />
+                  </div>
+                }
+                contentStyle={{ background: "#1D1836", color: "#fff" }}
+                contentArrowStyle={{ borderRight: "7px solid #232631" }}
+              >
+                <div className="d-flex justify-content-between align-items-center">
+                  <h3 className="text-white mb-3">PHP Web Developer</h3>
+                  <span className="vertical-timeline-element-date">
+                    Oct 2024 - Now
+                  </span>
+                </div>
+                <a
+                  className="text-secondary"
+                  href="https://renderbooking.com/"
+                  target="blank"
+                >
+                  Renderbooking
+                </a>
+                <ul style={{ fontSize: "15px" }}>
                   <li>
-                    Utilized version control systems such as Git, Github for
-                    code management and collaboration with team members.
+                    Led API development and integration for Renderbooking
+                    project.
+                  </li>
+                  <li>
+                    Used version control systems such as Git and GitHub for code
+                    management and collaborating with team members.
                   </li>
                 </ul>
               </VerticalTimelineElement>

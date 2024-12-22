@@ -10,7 +10,7 @@ export const handleClick = () => {
   contactSection.scrollIntoView({ behavior: "smooth" });
 };
 const Banner = () => {
-  const toRotate = ["Frontend Developer", "Web Devloper"];
+  const toRotate = ["Full-Stack Developer", "Web Devloper"];
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleteing] = useState(false);
   const [text, setText] = useState("");
@@ -65,16 +65,15 @@ const Banner = () => {
                     <span
                       className="txt-rotate"
                       dataperiod="1000"
-                      data-rotate='[ "Web Developer", "Frontend Developer"]'
+                      data-rotate='[ "Web Developer", "Full-Stack Developer"]'
                     >
                       <span className="wrap">{text}</span>
                     </span>
                   </h1>
                   <p>
-                    I'm a frontend developer passionate about crafting engaging
-                    and user-friendly web experiences. With a keen eye for
-                    design and a love for clean code, I enjoy turning ideas into
-                    elegant and functional websites and applications.
+                    I'm a full-stack developer passionate about creating
+                    user-friendly interfaces and robust systems, turning ideas
+                    into efficient and scalable web applications.
                   </p>
                   {/* <button onClick={handleClick}>
                     Let’s Connect <ArrowRightCircle size={25} />
