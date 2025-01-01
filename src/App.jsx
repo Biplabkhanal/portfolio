@@ -7,12 +7,14 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import WorkExperience from "./components/workexperience";
+import About from "./components/About";
 
 function App() {
   return (
     <>
       <NavBar />
       <Banner />
+      <About />
       <Skills />
       <WorkExperience />
       <Projects />
