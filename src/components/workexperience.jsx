@@ -6,28 +6,37 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import RenderLogo from "../assets/img/renderbooking.png";
+import TreeleafLogo from "../assets/img/treeleaf.png";
+import DecorativeSVG from "./SVG-Elements/SVGImages";
 
 const WorkExperience = () => {
   return (
-    <section className="work-experience" id="work">
+    <section className="work-experience pt-2 pb-4 pt-lg-5 pb-lg-5" id="work">
       <Container>
         <Row className="text-center mb-4">
           <Col>
-            <p className="text-secondary text-uppercase tracking-wider">
-              What I have done so far
+            <p className="text-secondary text-uppercase tracking-wider mb-0">
+              Where I have worked
             </p>
-            <h2>Work Experience</h2>
+            <h2 className="main-head">
+              Work <span className="head-exp">Experience</span>
+            </h2>
           </Col>
         </Row>
         <Row>
           <Col>
+            <div className="svg-experience">
+              <div className="decor-experience">
+                <DecorativeSVG />
+              </div>
+            </div>
             <VerticalTimeline>
               <VerticalTimelineElement
                 iconStyle={{ background: "#383E56", color: "#fff" }}
                 icon={
                   <div className="vertical-timeline-element-icon">
                     <img
-                      src="https://cdn.sanity.io/images/dn908w7j/production/910196a3e37ad448c9da73091041fffa49e4c44b-225x225.png"
+                      src={TreeleafLogo}
                       alt="Treeleaf.ai"
                       className="icon-img"
                     />
@@ -45,7 +54,7 @@ const WorkExperience = () => {
                   </span>
                 </div>
                 <a
-                  className="text-secondary"
+                  className="text-secondary icon-experience"
                   href="https://treeleaf.ai/"
                   target="blank"
                 >
@@ -70,9 +79,19 @@ const WorkExperience = () => {
                 </ul>
               </VerticalTimelineElement>
               <VerticalTimelineElement
-                iconStyle={{ background: "#383E56", color: "#fff" }}
+                iconStyle={{
+                  background: "#383E56",
+                  color: "#fff",
+                }}
                 icon={
-                  <div className="vertical-timeline-element-icon">
+                  <div
+                    className="vertical-timeline-element-icon"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      padding: "0 4px 0 4px",
+                    }}
+                  >
                     <img
                       src={RenderLogo}
                       alt="Renderbooking"
@@ -90,26 +109,27 @@ const WorkExperience = () => {
                   </span>
                 </div>
                 <a
-                  className="text-secondary"
+                  className="text-secondary icon-experience"
                   href="https://renderbooking.com/"
                   target="blank"
                 >
                   Renderbooking
                 </a>
                 <ul style={{ fontSize: "15px" }}>
-                  <li>
-                    Led API development and integration for Renderbooking
-                    project.
-                  </li>
-                  <li>
-                    Used version control systems such as Git and GitHub for code
-                    management and collaborating with team members.
-                  </li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
                 </ul>
               </VerticalTimelineElement>
             </VerticalTimeline>
           </Col>
         </Row>
+        <div className="svg-experience-bottom">
+          <div className="decor-experience-bottom">
+            <DecorativeSVG />
+          </div>
+        </div>
       </Container>
     </section>
   );

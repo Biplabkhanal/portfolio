@@ -1,21 +1,17 @@
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../assets/img/biplab.jpg";
-
 import { useEffect, useState } from "react";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
-export const handleClick = () => {
-  // Scroll to the contact section
-  const contactSection = document.getElementById("contacts");
-  contactSection.scrollIntoView({ behavior: "smooth" });
-};
+import heroImg from "../assets/hero/hero-image.png";
+import purpleSquare from "../assets/hero/purple-square.png";
+import DecorativeSVG from "./SVG-Elements/SVGImages";
+
 const Banner = () => {
-  const toRotate = ["Full-Stack Developer", "Web Devloper"];
-  const [loopNum, setLoopNum] = useState(0);
+  const toRotate = ["Full-Stack Developer."];
   const [isDeleting, setIsDeleteing] = useState(false);
   const [text, setText] = useState("");
-  const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const period = 2000;
+  const [delta, setDelta] = useState(250);
+  const period = 1000;
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -27,81 +23,82 @@ const Banner = () => {
   }, [text]);
 
   const tick = () => {
-    let i = loopNum % toRotate.length;
-    let fullText = toRotate[i];
+    let fullText = toRotate[0];
     let updatedText = isDeleting
       ? fullText.substring(0, text.length - 1)
       : fullText.substring(0, text.length + 1);
 
     setText(updatedText);
+
     if (isDeleting) {
-      setDelta((prevDelta) => prevDelta / 2);
+      setDelta(150);
     }
+
     if (!isDeleting && updatedText === fullText) {
       setIsDeleteing(true);
       setDelta(period);
     } else if (isDeleting && updatedText === "") {
       setIsDeleteing(false);
-      setLoopNum(loopNum + 1);
-      setDelta(500);
+      setDelta(250);
     }
   };
 
   return (
-    <section className="banner" id="home">
-      <Container>
-        <Row className="align-items-center">
-          <Col xs={12} md={6} xl={7}>
-            <TrackVisibility>
-              {({ isVisible }) => (
-                <div
-                  className={
-                    isVisible ? "animate__animated animate__fadeIn" : ""
-                  }
-                >
-                  <span className="tagline">Welcome to my Portfolio</span>
-                  <h1>
-                    {`Hi! I'm Biplab Khanal`}{" "}
-                    <span
-                      className="txt-rotate"
-                      dataperiod="1000"
-                      data-rotate='[ "Web Developer", "Full-Stack Developer"]'
-                    >
-                      <span className="wrap">{text}</span>
-                    </span>
-                  </h1>
-                  <p>
-                    I'm a full-stack developer passionate about creating
-                    user-friendly interfaces and robust systems, turning ideas
-                    into efficient and scalable web applications.
-                  </p>
-                  {/* <button onClick={handleClick}>
-                    Let’s Connect <ArrowRightCircle size={25} />
-                  </button> */}
-                </div>
-              )}
-            </TrackVisibility>
-          </Col>
-          <Col xs={12} md={6} xl={5}>
-            <TrackVisibility>
-              {({ isVisible }) => (
-                <div
-                  className={
-                    isVisible ? "animate__animated animate__zoomIn" : ""
-                  }
-                >
-                  <img
-                    style={{ borderRadius: "64px" }}
-                    src={myImg}
-                    alt="My Photo"
-                  />
-                </div>
-              )}
-            </TrackVisibility>
-          </Col>
-        </Row>
-      </Container>
-    </section>
+    <>
+      <div className="banner" id="home">
+        <Container>
+          <Row className="align-items-center">
+            <Col xs={12} md={6} xl={7}>
+              <TrackVisibility>
+                {({ isVisible }) => (
+                  <div
+                    className={
+                      isVisible ? "animate__animated animate__fadeIn" : ""
+                    }
+                  >
+                    <span className="tagline">Welcome to my Portfolio</span>
+                    <h1>
+                      {`Hi! I'm Biplab Khanal`} <br />
+                      <span className="txt-rotate">
+                        <span className="wrap">{text}</span>
+                      </span>
+                    </h1>
+                  </div>
+                )}
+              </TrackVisibility>
+            </Col>
+
+            <Col xs={12} md={6} xl={5}>
+              <TrackVisibility>
+                {({ isVisible }) => (
+                  <div
+                    className={
+                      isVisible ? "animate__animated animate__zoomIn" : ""
+                    }
+                  >
+                    <img src={heroImg} alt="Developer" />
+                  </div>
+                )}
+              </TrackVisibility>
+            </Col>
+          </Row>
+          <div className="side-by-side-container">
+            <div class="hero_decor">
+              <DecorativeSVG />
+            </div>
+            <img
+              className="purple_romb1 animate__animated animate__fadeIn animate__slideInDown animate__delay-1s"
+              src={purpleSquare}
+              alt=""
+              style={{
+                "--animate-duration": "700ms",
+                "--animate-delay": "800ms",
+              }}
+            />
+          </div>
+        </Container>
+      </div>
+    </>
   );
 };
 export default Banner;
