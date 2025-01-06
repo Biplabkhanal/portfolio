@@ -37,7 +37,7 @@ const About = () => {
                 />
               </a>
               <a
-                href="/../src/assets/resume/CV_Biplab.pdf"
+                href="/public/CV_Biplab.pdf"
                 className="cta-button secondary"
                 download="Biplab_Khanal_Resume.pdf"
               >
