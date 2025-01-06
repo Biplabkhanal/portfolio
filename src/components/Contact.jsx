@@ -104,7 +104,13 @@ const Contact = () => {
           <Col size={12} md={6}>
             <TrackVisibility>
               <div>
-                <h2>Get In Touch</h2>
+                <p className="text-secondary text-uppercase tracking-wider mb-0">
+                  If You Have Any Project In Your Mind.
+                </p>
+                <h2 className="main-head">
+                  <span className="head-exp"> Contact</span> Me!
+                </h2>
+
                 <form onSubmit={handleSubmit}>
                   <Row>
                     <Col size={12} sm={6} className="px-1">

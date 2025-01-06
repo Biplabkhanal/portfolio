@@ -41,7 +41,11 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={navIcon4} alt="Icon" />
+                <img
+                  src={navIcon4}
+                  alt="Icon"
+                  style={{ filter: "brightness(0) invert(1)" }}
+                />
               </a>
             </div>
             <div className="contact-info">
@@ -52,10 +56,6 @@ const Footer = () => {
               <p className="mb-0">
                 <FaPhone className="me-2" />
                 +977-9803344703
-              </p>
-              <p className="mb-0">
-                <FaPhone className="me-2" />
-                +977-9860353467
               </p>
             </div>
           </Col>

@@ -1,6 +1,6 @@
 import { Col } from "react-bootstrap";
 
-const ProjectCard = ({ title, description, imgUrl, githubLink }) => {
+const ProjectCard = ({ title, description, icon, githubLink, imgUrl }) => {
   const handleRedirect = () => {
     if (githubLink) {
       window.open(githubLink, "_blank");
@@ -8,33 +8,25 @@ const ProjectCard = ({ title, description, imgUrl, githubLink }) => {
   };
 
   return (
-    <>
-      <Col size={12} sm={6} md={6} className="d-md-block d-none">
-        <div
-          className="proj-imgbx"
-          onClick={githubLink ? handleRedirect : null}
-        >
-          <img style={{ height: "390px" }} src={imgUrl} />
-          <div className="proj-txtx">
-            <h4>{title}</h4>
-            <span>{description}</span>
-          </div>
+    <Col size={12} sm={6} md={4}>
+      <div
+        className="proj-card"
+        onClick={githubLink ? handleRedirect : null}
+        style={{
+          cursor: githubLink ? "pointer" : "default",
+          textAlign: "center",
+          border: "1px solid #ddd",
+          borderRadius: "10px",
+          margin: "15px 0",
+        }}
+      >
+        <img src={imgUrl} alt={`${title} image`} />
+        <div className="proj-text">
+          <h4>{title}</h4>
+          <p>{description}</p>
         </div>
-      </Col>
-
-      <Col size={12} sm={6} md={6} className="d-lg-none d-md-none d-block">
-        <div
-          className="proj-imgbx"
-          onClick={githubLink ? handleRedirect : null}
-        >
-          <img style={{ height: "260px" }} src={imgUrl} />
-          <div className="proj-txtx">
-            <h4>{title}</h4>
-            <span>{description}</span>
-          </div>
-        </div>
-      </Col>
-    </>
+      </div>
+    </Col>
   );
 };
 
