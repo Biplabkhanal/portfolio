@@ -1,6 +1,7 @@
 import React from "react";
 import Biplab from "../assets/img/biplab.jpg";
 import { FaRegHand } from "react-icons/fa6";
+import resume from "../assets/resume/CV_Biplab.pdf";
 
 const About = () => {
   return (
@@ -37,7 +38,7 @@ const About = () => {
                 />
               </a>
               <a
-                href="/public/CV_Biplab.pdf"
+                href={resume}
                 className="cta-button secondary"
                 download="Biplab_Khanal_Resume.pdf"
               >
