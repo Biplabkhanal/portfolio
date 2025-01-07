@@ -647,7 +647,6 @@ img {
 .svg-experience-bottom {
   display: flex;
   margin-top: -208px !important;
-  margin-right: -290px;
   margin-bottom: -210px;
   justify-content: flex-end;
   overflow: hidden;
@@ -774,7 +773,7 @@ img {
   width: 150px;
   height: 150px;
   margin-top: -350px !important;
-  margin-left: 1150px;
+  margin-left: 1050px;
   margin-bottom: -195px;
 }
 
@@ -789,7 +788,7 @@ img {
   width: 70px;
   height: 70px;
   margin-top: -220px !important;
-  margin-left: -150px;
+  margin-left: -100px;
   margin-bottom: -300px;
 }
 
