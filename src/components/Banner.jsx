@@ -83,7 +83,7 @@ const Banner = () => {
             </Col>
           </Row>
           <div className="side-by-side-container">
-            <div class="hero_decor">
+            <div className="hero_decor">
               <DecorativeSVG />
             </div>
             <img

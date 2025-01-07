@@ -891,8 +891,8 @@ img {
 .contact form textarea {
   width: 100%;
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
   margin: 0 0 8px 0;
   padding: 18px 26px;
   font-weight: 500;
@@ -912,6 +912,10 @@ img {
 .contact form input:focus,
 .contact form textarea:focus {
   color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid;
+  border-image: linear-gradient(90.21deg, #aa367c -5.91%, #4a2fbd 111.58%) 1;
+  outline: none;
 }
 
 .contact form button {
@@ -919,11 +923,10 @@ img {
   background-color: rgba(255, 255, 255, 0.1);
   padding: 14px 40px;
   font-size: 18px;
-  /* margin-top: 25px; */
-  border-radius: 8px;
+  border-radius: 10px;
   position: relative;
   transition: 0.3s ease-in-out;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.5);
 }
 .contact form button span {
   z-index: 1;
@@ -936,7 +939,7 @@ img {
   width: 0;
   height: 100%;
   position: absolute;
-  border-radius: 8px;
+  border-radius: 10px;
   top: 0;
   left: 0;
   z-index: 0;
@@ -944,6 +947,62 @@ img {
 }
 .contact form button:hover::before {
   width: 100%;
+}
+
+.shake {
+  animation: shake 0.5s ease;
+  border: 2px solid red;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+.textarea-wrapper {
+  position: relative;
+}
+
+.textarea-wrapper .error {
+  border: 1px solid red;
+}
+
+.textarea-wrapper .error-overlay {
+  position: absolute;
+  top: -11px;
+  padding: 2px 20px;
+  color: red;
+  font-size: 12px;
+}
+
+input.error,
+textarea.error {
+  border: 2px solid red;
+}
+.textarea-wrapper input.error,
+.textarea-wrapper textarea.error {
+  border-top: none;
+}
+
+.textarea-wrapper input:focus + .error-overlay,
+.textarea-wrapper textarea:focus + .error-overlay {
+  display: none;
+}
+
+.danger,
+.success {
+  font-weight: bolder;
+  font-size: larger;
 }
 
 /************ Footer Css ************/
