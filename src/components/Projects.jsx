@@ -259,6 +259,7 @@ const Projects = () => {
                             top: 0,
                             left: 0,
                             zIndex: 9999,
+                            margin: 0,
                           }}
                         >
                           <img
