@@ -27,13 +27,21 @@ const GitHubStats = ({ username }) => {
           </div>
           <div className="stats-card">
             <img
-              src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=dark&hide_border=true&background=0d1117&stroke=58a6ff`}
-              alt="GitHub Streak"
+              src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=dark&hide_border=true&background=0d1117&stroke=58a6ff&cache_seconds=86400`}
+              //   alt="GitHub Streak"
+              loading="eager"
+              width="495"
+              height="195"
               onLoad={() => setStreakLoading(false)}
-              onError={() => setStreakLoading(false)}
+              onError={() => {
+                setStreakLoading(false);
+                setTimeout(() => {
+                  const img = new Image();
+                  img.src = `https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=dark&hide_border=true&background=0d1117&stroke=58a6ff&cache_seconds=86400`;
+                }, 2000);
+              }}
               style={{
                 display: streakLoading ? "none" : "block",
-                width: "100%",
               }}
             />
             {streakLoading && <LoadingSpinner />}
