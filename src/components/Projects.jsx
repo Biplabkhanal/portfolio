@@ -32,6 +32,7 @@ import fivebrothers4 from "../assets/projects/fivebrothers4.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import { useEffect, useState } from "react";
+import GitHubStats from "./GitHubStats";
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -194,6 +195,7 @@ const Projects = () => {
                           </svg>
                         </a>
                       </div>
+                      <GitHubStats username="Biplabkhanal" />
                     </>
                   ) : (
                     <Row className="g-4 ">
