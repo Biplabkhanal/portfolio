@@ -99,7 +99,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="contact" id="contacts">
+    <section className="contact py-5 " id="contacts">
       <Container>
         <Row className="align-items-center">
           <Col size={12} md={6}>

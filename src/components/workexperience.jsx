@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { motion } from "framer-motion";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -9,9 +10,57 @@ import RenderLogo from "../assets/img/renderbooking.png";
 import TreeleafLogo from "../assets/img/treeleaf.png";
 import DecorativeSVG from "./SVG-Elements/SVGImages";
 
+const BubbleBackground = () => {
+  const generateRandomPath = () => {
+    return [...Array(5)].map(() => `${Math.random() * 100}%`);
+  };
+
+  return (
+    <div className="bubble-container">
+      {[...Array(20)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="bubble"
+          initial={{
+            x: `${Math.random() * 100}%`,
+            y: `${Math.random() * 100}%`,
+          }}
+          animate={{
+            x: generateRandomPath(),
+            y: generateRandomPath(),
+          }}
+          transition={{
+            duration: Math.random() * 20 + 10, // Faster and varied speeds
+            repeat: Infinity,
+            repeatType: "mirror",
+            ease: "easeInOut",
+            delay: Math.random() * 3,
+          }}
+          style={{
+            position: "absolute",
+            width: `${Math.random() * 60 + 20}px`,
+            height: `${Math.random() * 60 + 20}px`,
+            borderRadius: "50%",
+            background: `linear-gradient(45deg, 
+              rgba(170, 54, 124, ${Math.random() * 0.2 + 0.1}), 
+              rgba(74, 47, 189, ${Math.random() * 0.2 + 0.1}))`,
+            backdropFilter: "blur(4px)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+            zIndex: 0,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 const WorkExperience = () => {
   return (
-    <section className="work-experience py-4 py-lg-5 " id="work">
+    <section
+      className="work-experience py-4 py-lg-5 position-relative overflow-hidden"
+      id="work"
+    >
+      <BubbleBackground />
       <Container>
         <Row className="text-center mb-4">
           <Col>
