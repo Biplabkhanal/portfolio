@@ -116,7 +116,7 @@ const Projects = () => {
   ];
 
   return (
-    <section className="project" id="projects">
+    <section className="project py-lg-4 py-2" id="projects">
       <Container>
         <img
           src={sphereSm}

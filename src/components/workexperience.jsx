@@ -11,7 +11,7 @@ import DecorativeSVG from "./SVG-Elements/SVGImages";
 
 const WorkExperience = () => {
   return (
-    <section className="work-experience pt-2 pb-4 pt-lg-5 pb-lg-5" id="work">
+    <section className="work-experience py-4 py-lg-5 " id="work">
       <Container>
         <Row className="text-center mb-4">
           <Col>
