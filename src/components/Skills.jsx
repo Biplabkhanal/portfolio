@@ -71,7 +71,10 @@ const Skills = () => {
   };
 
   return (
-    <section className="skills-section py-lg-5 py-4 skills position-relative overflow-hidden">
+    <section
+      className="skills-section py-lg-5 py-4 skills position-relative overflow-hidden"
+      id="skills"
+    >
       <div className="particles">
         {[...Array(15)].map((_, i) => (
           <motion.div
