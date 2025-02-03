@@ -8,7 +8,7 @@ const GitHubStats = ({ username }) => {
   const [languagesLoading, setLanguagesLoading] = useState(true);
 
   const theme = {
-    light: ["#f0f0f0", "#39d353"],
+    light: ["#f0f0f010", "#39d353"],
     dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
   };
 

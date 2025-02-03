@@ -1136,10 +1136,6 @@ textarea.error {
   height: auto !important;
 }
 
-.react-activity-calendar__calendar {
-  /* color: #58a6ff; */
-}
-
 .loading-spinner {
   display: flex;
   justify-content: center;
