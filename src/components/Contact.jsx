@@ -77,12 +77,11 @@ const Contact = () => {
     try {
       setButtonText("Sending...");
       await emailjs.sendForm(
-        "service_dh5boyp",
-        "template_y7mb6vu",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         e.target,
-        "00pm_DSs8DYNgvz1W"
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
-
       setButtonText("Send");
       setFormDetails(formInitialDetails);
       setStatus({ success: true, message: "Message sent successfully" });
