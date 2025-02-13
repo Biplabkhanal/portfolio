@@ -1160,3 +1160,66 @@ textarea.error {
     transform: rotate(360deg);
   }
 }
+
+.custom-cursor {
+  pointer-events: none;
+  z-index: 9999;
+  position: fixed;
+  mix-blend-mode: difference;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(170, 54, 124, 0.9);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+
+.cursor-bubble {
+  position: fixed;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+.cursor-bubble-1 {
+  width: 40px;
+  height: 40px;
+  background: rgba(170, 54, 124, 0.3);
+  animation: pulse 2s infinite;
+  transition: all 0.2s ease-out;
+}
+
+.cursor-bubble-2 {
+  width: 70px;
+  height: 70px;
+  background: rgba(170, 54, 124, 0.2);
+  animation: pulse 2s infinite 0.2s;
+  transition: all 0.3s ease-out;
+}
+
+.cursor-bubble-3 {
+  width: 100px;
+  height: 100px;
+  background: rgba(170, 54, 124, 0.1);
+  animation: pulse 2s infinite 0.4s;
+  transition: all 0.4s ease-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0px);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    filter: blur(2px);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0px);
+  }
+}

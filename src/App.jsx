@@ -8,10 +8,12 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import WorkExperience from "./components/workexperience";
 import About from "./components/About";
+import CustomCursor from "./components/SVG-Elements/CustomCursor";
 
 function App() {
   return (
     <>
+      <CustomCursor />
       <NavBar />
       <Banner />
       <About />
