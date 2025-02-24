@@ -1162,64 +1162,50 @@ textarea.error {
 }
 
 .custom-cursor {
+  position: fixed;
   pointer-events: none;
   z-index: 9999;
-  position: fixed;
   mix-blend-mode: difference;
+  filter: blur(0.5px);
 }
 
 .cursor-dot {
   width: 8px;
   height: 8px;
-  background-color: rgba(170, 54, 124, 0.9);
+  background-color: #ffffff;
   border-radius: 50%;
-  position: fixed;
+  position: absolute;
   transform: translate(-50%, -50%);
-  transition: transform 0.1s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .cursor-bubble {
-  position: fixed;
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  will-change: transform;
 }
 
 .cursor-bubble-1 {
-  width: 40px;
-  height: 40px;
-  background: rgba(170, 54, 124, 0.3);
-  animation: pulse 2s infinite;
-  transition: all 0.2s ease-out;
+  width: 30px;
+  height: 30px;
+  border-color: rgba(255, 107, 107, 0.5);
 }
 
 .cursor-bubble-2 {
-  width: 70px;
-  height: 70px;
-  background: rgba(170, 54, 124, 0.2);
-  animation: pulse 2s infinite 0.2s;
-  transition: all 0.3s ease-out;
+  width: 45px;
+  height: 45px;
+  border-color: rgba(107, 255, 255, 0.5);
 }
 
 .cursor-bubble-3 {
-  width: 100px;
-  height: 100px;
-  background: rgba(170, 54, 124, 0.1);
-  animation: pulse 2s infinite 0.4s;
-  transition: all 0.4s ease-out;
+  width: 60px;
+  height: 60px;
+  border-color: rgba(255, 255, 107, 0.5);
 }
 
-@keyframes pulse {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-    filter: blur(0px);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.2);
-    filter: blur(2px);
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-    filter: blur(0px);
-  }
+.cursor-bubble-4 {
+  width: 75px;
+  height: 75px;
+  border-color: rgba(255, 107, 255, 0.5);
 }

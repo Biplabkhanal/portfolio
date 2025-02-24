@@ -46,6 +46,10 @@ const CustomCursor = () => {
         className="cursor-bubble cursor-bubble-3"
         animate={{ scale: isClickHeld ? 0.8 : 1 }}
       />
+      <motion.div
+        className="cursor-bubble cursor-bubble-4"
+        animate={{ scale: isClickHeld ? 0.8 : 1 }}
+      />
     </motion.div>
   );
 };
