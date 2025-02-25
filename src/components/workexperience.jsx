@@ -60,9 +60,8 @@ const BubbleBackground = () => {
 // Skill badge component for better tech stack visualization
 const SkillBadge = ({ skill }) => (
   <Badge
-    className="me-2 mb-2 skill-badge"
+    className="me-2 mb-2 skill-badge cta-button primary"
     style={{
-      background: "rgba(255,255,255,0.1)",
       color: "#e2e2f0",
       padding: "6px 10px",
       borderRadius: "5px",
