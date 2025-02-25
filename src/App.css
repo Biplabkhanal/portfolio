@@ -460,6 +460,12 @@ img {
   font-style: bold;
 }
 
+.company {
+  background-image: linear-gradient(90.21deg, #aa367c -5.91%, #4a2fbd 111.58%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .description {
   font-size: 1.1rem;
   line-height: 1.8;

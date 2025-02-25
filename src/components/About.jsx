@@ -1,6 +1,6 @@
 import React from "react";
 import Biplab from "../assets/img/biplab.jpg";
-import { FaRegHand } from "react-icons/fa6";
+import { FaDownload, FaRegHand } from "react-icons/fa6";
 import resume from "../assets/resume/CV_Biplab.pdf";
 
 const About = () => {
@@ -22,9 +22,31 @@ const About = () => {
             <h4 className="subtitle">Full-Stack Developer</h4>
 
             <p className="description">
-              I'm a full-stack developer passionate about creating user-friendly
-              interfaces and robust systems, turning ideas into efficient and
-              scalable web applications.
+              I'm a full-stack developer with expertise in React, PHP, and
+              Laravel. Passionate about creating user-friendly interfaces and
+              robust systems, I specialize in turning ideas into efficient and
+              scalable web applications. With experience at{" "}
+              <b class="company">
+                <a
+                  class="icon-experience"
+                  href="https://treeleaf.ai/"
+                  target="blank"
+                >
+                  Treeleaf.ai
+                </a>
+              </b>{" "}
+              and{" "}
+              <b class="company">
+                <a
+                  class="icon-experience"
+                  href="https://renderbooking.com/"
+                  target="blank"
+                >
+                  Renderbooking
+                </a>
+              </b>
+              , I've developed skills in both front-end and back-end
+              technologies.
             </p>
 
             <div className="button-group">
@@ -42,7 +64,7 @@ const About = () => {
                 className="cta-button secondary"
                 download="Biplab_Khanal_Resume.pdf"
               >
-                Resume
+                Resume <FaDownload style={{ marginLeft: "5px" }} />
               </a>
             </div>
           </div>
