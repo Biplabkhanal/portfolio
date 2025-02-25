@@ -442,7 +442,7 @@ img {
 
 .title {
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0 !important;
 }
 
 .highlight {
@@ -700,7 +700,6 @@ img {
   .svg-experience-bottom {
     margin-right: 0px !important;
     display: block !important;
-    margin-left: 125px !important;
   }
 }
 
@@ -1081,7 +1080,7 @@ textarea.error {
   font-size: 14px;
   color: #b8b8b8;
   letter-spacing: 0.5px;
-  margin-top: 20px;
+  margin-top: 9px;
 }
 
 .github-stats-wrapper {
