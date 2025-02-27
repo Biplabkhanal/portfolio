@@ -82,6 +82,14 @@ const Banner = () => {
               </TrackVisibility>
             </Col>
           </Row>
+          <div className="scroll-indicator">
+            <div className="mouse">
+              <div className="wheel"></div>
+            </div>
+            <div className="arrow">
+              <span></span>
+            </div>
+          </div>
           <div className="side-by-side-container">
             <div className="hero_decor">
               <DecorativeSVG />
