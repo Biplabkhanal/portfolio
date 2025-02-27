@@ -472,7 +472,7 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, rgba(26, 35, 126, 0.2), transparent);
+  background: linear-gradient(45deg, rgba(26, 35, 126, 0 0.2), transparent);
 }
 
 .content {
@@ -1100,6 +1100,134 @@ textarea.error {
 .success {
   font-weight: bolder;
   font-size: larger;
+}
+
+/* New Modern Success Animation */
+.success-animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  position: relative;
+  animation: pulse 1.2s ease-in-out;
+  box-shadow: 0 0 0 rgba(76, 175, 80, 0.4);
+}
+
+.success-icon {
+  width: 35px;
+  height: 35px;
+  fill: white;
+  animation: check-appear 0.5s ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes check-appear {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Error Animation */
+.error-animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #f44336;
+  border-radius: 50%;
+  position: relative;
+  animation: error-pulse 1.2s ease-in-out;
+  box-shadow: 0 0 0 rgba(244, 67, 54, 0.4);
+}
+
+.error-icon {
+  width: 35px;
+  height: 35px;
+  fill: white;
+  animation: error-appear 0.5s ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes error-pulse {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(244, 67, 54, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes error-appear {
+  0% {
+    transform: scale(0) rotate(90deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2) rotate(0deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.submit-btn {
+  position: relative;
+  min-width: 120px;
+}
+
+.submit-btn .spinner-border {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 /************ Footer Css ************/

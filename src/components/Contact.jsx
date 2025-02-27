@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
@@ -18,6 +18,8 @@ const Contact = () => {
   const [buttonText, setButtonText] = useState("Send");
   const [status, setStatus] = useState({});
   const [errors, setErrors] = useState({});
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const onFormUpdate = (category, value) => {
     setFormDetails({ ...formDetails, [category]: value });
@@ -30,6 +32,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     setButtonText("Sending...");
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^\d{10,}$/;
@@ -86,14 +89,20 @@ const Contact = () => {
       setFormDetails(formInitialDetails);
       setStatus({ success: true, message: "Message sent successfully" });
       setErrors({});
+      setShowSuccess(true);
 
       setTimeout(() => {
         setStatus({});
-      }, 5000);
+        setShowSuccess(false);
+      }, 6000);
     } catch (error) {
       setButtonText("Send");
       setStatus({ success: false, message: "Failed to send message" });
-      console.error("Error:", error);
+      setShowError(true);
+      setTimeout(() => {
+        setStatus({});
+        setShowError(false);
+      }, 6000);
     }
   };
 
@@ -117,16 +126,16 @@ const Contact = () => {
           <Col size={12} md={6}>
             <TrackVisibility>
               <div>
-                <p className="text-secondary text-uppercase tracking-wider mb-0">
+                <p className="text-secondary text-uppercase tracking-wider mb-0 px-2 px-lg-0">
                   If You Have Any Project In Your Mind.
                 </p>
-                <h2 className="main-head">
+                <h2 className="main-head px-2 px-lg-0">
                   <span className="head-exp"> Contact</span> Me!
                 </h2>
 
                 <form onSubmit={handleSubmit} noValidate>
                   <Row>
-                    <Col size={12} sm={6} className="px-1">
+                    <Col size={12} sm={6} className="px-3 px-lg-1">
                       <div
                         className={`textarea-wrapper ${
                           errors.firstName ? "error" : ""
@@ -150,7 +159,7 @@ const Contact = () => {
                         )}
                       </div>
                     </Col>
-                    <Col size={12} sm={6} className="px-1">
+                    <Col size={12} sm={6} className="px-3 px-lg-1">
                       <input
                         type="text"
                         name="lastName"
@@ -166,7 +175,7 @@ const Contact = () => {
                         <div className="error-overlay">{errors.lastName}</div>
                       )}
                     </Col>
-                    <Col size={12} sm={6} className="px-1">
+                    <Col size={12} sm={6} className="px-3 px-lg-1">
                       <div
                         className={`textarea-wrapper ${
                           errors.email ? "error" : ""
@@ -188,7 +197,7 @@ const Contact = () => {
                         )}
                       </div>
                     </Col>
-                    <Col size={12} sm={6} className="px-1">
+                    <Col size={12} sm={6} className="px-3 px-lg-1">
                       <div
                         className={`textarea-wrapper ${
                           errors.phone ? "error" : ""
@@ -210,7 +219,7 @@ const Contact = () => {
                         )}
                       </div>
                     </Col>
-                    <Col size={12} className="px-1">
+                    <Col size={12} className="px-3 px-lg-1">
                       <div
                         className={`textarea-wrapper ${
                           errors.message ? "error" : ""
@@ -234,11 +243,22 @@ const Contact = () => {
                       <button
                         type="submit"
                         disabled={buttonText === "Sending..."}
+                        className="submit-btn"
                       >
-                        <span style={{ color: "#fff" }}>{buttonText}</span>
+                        {buttonText === "Sending..." ? (
+                          <div className="d-flex align-items-center justify-content-center">
+                            <Spinner
+                              animation="border"
+                              size="sm"
+                              style={{ color: "#fff" }}
+                            />
+                          </div>
+                        ) : (
+                          <span style={{ color: "#fff" }}>{buttonText}</span>
+                        )}
                       </button>
                     </Col>
-                    {status.message && (
+                    {status.message && !showSuccess && !showError && (
                       <Col>
                         <p
                           className={
@@ -247,6 +267,34 @@ const Contact = () => {
                         >
                           {status.message}
                         </p>
+                      </Col>
+                    )}
+                    {showSuccess && (
+                      <Col size={12} className="mt-4">
+                        <div className="success-animation text-center">
+                          <div className="success-icon-circle">
+                            <svg className="success-icon" viewBox="0 0 24 24">
+                              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+                            </svg>
+                          </div>
+                          <h5 className="mt-3 text-success animate__animated animate__fadeIn">
+                            Message Sent Successfully!
+                          </h5>
+                        </div>
+                      </Col>
+                    )}
+                    {showError && (
+                      <Col size={12} className="mt-4">
+                        <div className="error-animation text-center">
+                          <div className="error-icon-circle">
+                            <svg className="error-icon" viewBox="0 0 24 24">
+                              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+                            </svg>
+                          </div>
+                          <h5 className="mt-3 text-danger animate__animated animate__fadeIn">
+                            Failed to Send Message!
+                          </h5>
+                        </div>
                       </Col>
                     )}
                   </Row>
