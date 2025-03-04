@@ -4,6 +4,7 @@ import contactImg from "../assets/img/contact-img.svg";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import emailjs from "emailjs-com";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Contact = () => {
   const formInitialDetails = {
@@ -132,7 +133,6 @@ const Contact = () => {
                 <h2 className="main-head px-2 px-lg-0">
                   <span className="head-exp"> Contact</span> Me!
                 </h2>
-
                 <form onSubmit={handleSubmit} noValidate>
                   <Row>
                     <Col size={12} sm={6} className="px-3 px-lg-1">
@@ -299,6 +299,15 @@ const Contact = () => {
                     )}
                   </Row>
                 </form>
+                <div className="floating-contact">
+                  <a
+                    href="https://wa.me/9803344703"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaWhatsapp className="whatsapp-icon" />
+                  </a>
+                </div>
               </div>
             </TrackVisibility>
           </Col>
