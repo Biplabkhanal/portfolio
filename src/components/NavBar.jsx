@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
-// import logo from "../assets/logo/biplab_logo.webp";
-import logo from "../assets/logo/Biplab-Logo.webp";
 
 const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -24,23 +21,21 @@ const NavBar = () => {
 
   const onUpdateActiveLink = (value) => {
     setActiveLink(value);
-    setIsMenuOpen(false); // Close menu after selecting a link
+    setIsMenuOpen(false);
   };
 
   const toggleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
   };
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    // Add logic to toggle dark mode styles
-  };
-
   return (
     <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
       <Container>
         <Navbar.Brand href="#home">
-          <img src={logo} alt="Logo" className="logo" />
+          <div className="logo-container">
+            <span className="logo-text">B</span>
+            <span className="logo-text-k">K</span>
+          </div>
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"

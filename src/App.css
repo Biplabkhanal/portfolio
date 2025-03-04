@@ -101,7 +101,7 @@ p.danger {
 }
 
 nav.navbar {
-  padding: 7px 10%;
+  padding: 27px 10%;
   position: fixed;
   width: 100%;
   top: 0;
@@ -183,6 +183,47 @@ nav.navbar .navbar-nav a.nav-link.navbar-link:hover {
       transform: translateY(0);
     }
   }
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.logo-text {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(90deg, #aa367c 0%, #4a2fbd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-right: 2px;
+}
+
+.logo-text-k {
+  font-size: 2.2rem;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  position: relative;
+  background: linear-gradient(90deg, #4a2fbd 0%, #aa367c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Add a subtle animation effect on hover */
+.logo-container:hover .logo-text {
+  transform: translateX(-2px);
+  transition: transform 0.3s ease;
+}
+
+.logo-container:hover .logo-text-k {
+  transform: translateX(2px);
+  transition: transform 0.3s ease;
 }
 
 .social-icon a {
