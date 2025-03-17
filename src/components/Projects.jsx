@@ -10,24 +10,25 @@ import sphereLg from "../assets/projects/sphere_lg.png";
 import sphereSm from "../assets/projects/sphere_sm.png";
 import sphereMd from "../assets/projects/sphere_md.png";
 import travel1 from "../assets/projects/travel1.jpg";
-import traffic1 from "../assets/projects/traffic1.jpg";
+import traffic1 from "../assets/projects/traffic1.png";
 import myntra1 from "../assets/projects/myntra1.jpg";
 import anydone1 from "../assets/projects/anydpne2.png";
 import treelytics1 from "../assets/projects/treelytics.png";
 import fivebrothers1 from "../assets/projects/fivebrothers1.png";
 import travel2 from "../assets/projects/travel2.jpg";
-import traffic2 from "../assets/projects/traffic2.jpg";
+import traffic2 from "../assets/projects/traffic2.png";
 import myntra2 from "../assets/projects/myntra2.jpg";
 import anydone2 from "../assets/projects/anydone1.png";
-// import treelytics2 from "../assets/projects/treelytics2.png";
 import fivebrothers2 from "../assets/projects/fivebrothers2.png";
 import travel3 from "../assets/projects/travel3.jpg";
 import traffic3 from "../assets/projects/traffic3.png";
-// import anydone3 from "../assets/projects/anydone3.png";
-// import treelytics3 from "../assets/projects/treelytics3.png";
 import fivebrothers3 from "../assets/projects/fivebrothers3.png";
 import travel4 from "../assets/projects/travel4.jpg";
 import fivebrothers4 from "../assets/projects/fivebrothers4.png";
+import realtimechat from "../assets/projects/realtimechat1.png";
+import realtimechat2 from "../assets/projects/realtimechat2.png";
+import realtimechat3 from "../assets/projects/realtimechat3.png";
+import realtimechat4 from "../assets/projects/realtimechat4.png";
 
 import "animate.css";
 import TrackVisibility from "react-on-screen";
@@ -87,6 +88,13 @@ const Projects = () => {
       imgUrl: portfolio6,
       githubLink: "https://fivebrotherstraders.com/",
     },
+    {
+      title: "Real Time Chat Application",
+      description:
+        "File attachment capability, message deletion, typing indicators, and real-time message delivery",
+      imgUrl: portfolio3,
+      githubLink: "https://github.com/Biplabkhanal/Real-Time-Chat.git",
+    },
   ];
   const projectsTab2 = [
     {
@@ -112,6 +120,10 @@ const Projects = () => {
     {
       title: "Five Brothers Traders",
       images: [fivebrothers1, fivebrothers2, fivebrothers3, fivebrothers4],
+    },
+    {
+      title: "Real Time Chat Application",
+      images: [realtimechat, realtimechat2, realtimechat3, realtimechat4],
     },
   ];
 
