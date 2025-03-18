@@ -7,7 +7,7 @@ import purpleSquare from "../assets/hero/purple-square.png";
 import DecorativeSVG from "./SVG-Elements/SVGImages";
 
 const Banner = () => {
-  const toRotate = ["Full-Stack Developer."];
+  const toRotate = ["Backend Developer."];
   const [isDeleting, setIsDeleteing] = useState(false);
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(250);

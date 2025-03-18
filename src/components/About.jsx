@@ -19,13 +19,13 @@ const About = () => {
             <h2 className="title">
               About <span className="highlight">Me</span>
             </h2>
-            <h4 className="subtitle">Full-Stack Developer</h4>
+            <h4 className="subtitle">Backend Developer</h4>
 
             <p className="description">
-              I'm a full-stack developer with expertise in React, PHP, and
-              Laravel. Passionate about creating user-friendly interfaces and
-              robust systems, I specialize in turning ideas into efficient and
-              scalable web applications. With experience at{" "}
+              I'm a backend developer with frontend knowledge, specializing in
+              PHP, Laravel, and database design. I build robust server
+              architectures while leveraging React skills to create integrated
+              web solutions. With experience at{" "}
               <b class="company">
                 <a
                   class="icon-experience"
@@ -45,8 +45,8 @@ const About = () => {
                   Renderbooking
                 </a>
               </b>
-              , I've developed skills in both front-end and back-end
-              technologies.
+              , I've developed comprehensive skills across the development stack
+              with a primary focus on backend systems.
             </p>
 
             <div className="button-group">
