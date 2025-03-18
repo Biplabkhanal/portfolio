@@ -560,7 +560,7 @@ img {
 }
 
 .cta-button {
-  padding: 0.8rem 1.5rem;
+  padding: 0.8rem 1.35rem;
   border-radius: 10px;
   font-weight: 600;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
