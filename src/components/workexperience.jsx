@@ -80,7 +80,7 @@ const WorkExperience = () => {
   return (
     <section
       className="work-experience py-5 py-lg-6 position-relative overflow-hidden"
-      id="work"
+      id="experience"
       style={{ minHeight: "100vh" }}
     >
       <BubbleBackground />

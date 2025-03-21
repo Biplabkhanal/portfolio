@@ -8,20 +8,68 @@ const NavBar = () => {
 
   useEffect(() => {
     const onScroll = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        setActiveLink(hash);
+      }
+
       if (window.scrollY > 50) {
         setScrolled(true);
+        setIsMenuOpen(false);
       } else {
         setScrolled(false);
       }
     };
 
+    const handleSectionVisibility = () => {
+      const sections = [
+        "home",
+        "about",
+        "skills",
+        "experience",
+        "projects",
+        "contacts",
+      ];
+      const sectionElements = sections.map((section) =>
+        document.querySelector(`#${section}`)
+      );
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveLink(entry.target.id);
+              history.replaceState(null, null, `#${entry.target.id}`);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      sectionElements.forEach((section) => {
+        if (section) observer.observe(section);
+      });
+
+      return () => {
+        sectionElements.forEach((section) => {
+          if (section) observer.unobserve(section);
+        });
+      };
+    };
+
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const cleanup = handleSectionVisibility();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (cleanup) cleanup();
+    };
   }, []);
 
   const onUpdateActiveLink = (value) => {
     setActiveLink(value);
     setIsMenuOpen(false);
+    window.location.hash = value;
   };
 
   const toggleMenu = () => {
@@ -29,7 +77,16 @@ const NavBar = () => {
   };
 
   return (
-    <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
+    <Navbar
+      expand="lg"
+      className={scrolled ? "scrolled" : ""}
+      style={{
+        transition: "all 0.3s ease-in-out",
+        background: scrolled ? "rgba(18, 18, 18, 0.95)" : "transparent",
+        backdropFilter: scrolled ? "blur(10px)" : "none",
+        padding: "1rem 0",
+      }}
+    >
       <Container>
         <Navbar.Brand href="#home">
           <div className="logo-container">
@@ -42,71 +99,121 @@ const NavBar = () => {
           className="navbar-toggler"
           onClick={toggleMenu}
           style={{
-            borderColor: "rgba(255, 255, 255, 0.5)",
+            border: "none",
+            padding: "0.5rem",
+            backgroundColor: "transparent",
           }}
         >
-          {isMenuOpen ? (
-            <span style={{ color: "white", fontSize: "30px" }}>×</span>
-          ) : (
+          <div
+            style={{
+              position: "relative",
+              width: "25px",
+              height: "20px",
+            }}
+          >
             <span
-              className="navbar-toggler-icon"
               style={{
-                backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")`,
+                position: "absolute",
+                width: "100%",
+                height: "2px",
+                background: "linear-gradient(90deg, #aa367c, #4a2fbd)",
+                transition: "0.3s",
+                opacity: isMenuOpen ? 0 : 1,
+                top: "0",
               }}
             />
-          )}
+            <span
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: "2px",
+                background: "linear-gradient(90deg, #aa367c, #4a2fbd)",
+                transition: "0.3s",
+                top: "50%",
+                transform: isMenuOpen ? "rotate(45deg)" : "none",
+              }}
+            />
+            <span
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: "2px",
+                background: "linear-gradient(90deg, #aa367c, #4a2fbd)",
+                transition: "0.3s",
+                top: "50%",
+                transform: isMenuOpen ? "rotate(-45deg)" : "none",
+              }}
+            />
+            <span
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: "2px",
+                background: "linear-gradient(90deg, #aa367c, #4a2fbd)",
+                transition: "0.3s",
+                opacity: isMenuOpen ? 0 : 1,
+                bottom: "0",
+              }}
+            />
+          </div>
         </Navbar.Toggle>
         <Navbar.Collapse
           id="basic-navbar-nav"
           className={isMenuOpen ? "show-menu" : ""}
-          onExited={() => setIsMenuOpen(false)} // Sync collapse state
+          onExited={() => setIsMenuOpen(false)}
+          style={{
+            background: isMenuOpen ? "rgba(18, 18, 18, 0.95)" : "transparent",
+            backdropFilter: isMenuOpen ? "blur(10px)" : "none",
+            borderRadius: isMenuOpen ? "10px" : "0",
+            padding: isMenuOpen ? "1rem" : "0",
+            marginTop: isMenuOpen ? "1rem" : "0",
+            transition: "all 0.3s ease-in-out",
+          }}
         >
           <Nav className="ms-auto mobile-nav">
-            <Nav.Link
-              href="#home"
-              className={
-                activeLink === "home" ? "active navbar-link" : "navbar-link"
-              }
-              onClick={() => onUpdateActiveLink("home")}
-            >
-              Home
-            </Nav.Link>
-            <Nav.Link
-              href="#about"
-              className={
-                activeLink === "about" ? "active navbar-link" : "navbar-link"
-              }
-              onClick={() => onUpdateActiveLink("about")}
-            >
-              About Me
-            </Nav.Link>
-            <Nav.Link
-              href="#skills"
-              className={
-                activeLink === "skills" ? "active navbar-link" : "navbar-link"
-              }
-              onClick={() => onUpdateActiveLink("skills")}
-            >
-              Skills
-            </Nav.Link>
-            <Nav.Link
-              href="#projects"
-              className={
-                activeLink === "projects" ? "active navbar-link" : "navbar-link"
-              }
-              onClick={() => onUpdateActiveLink("projects")}
-            >
-              Projects
-            </Nav.Link>
-            <Nav.Link
-              href="#contacts"
-              className={
-                activeLink === "contacts" ? "active navbar-link" : "navbar-link"
-              }
-              onClick={() => onUpdateActiveLink("contacts")}
-            >
-              Contact Me
-            </Nav.Link>
+            {[
+              "home",
+              "about",
+              "skills",
+              "experience",
+              "projects",
+              "contacts",
+            ].map((link) => (
+              <Nav.Link
+                key={link}
+                href={`#${link}`}
+                className={
+                  activeLink === link ? "active navbar-link" : "navbar-link"
+                }
+                onClick={() => onUpdateActiveLink(link)}
+                style={{
+                  color: "#fff",
+                  opacity: activeLink === link ? 1 : 0.7,
+                  position: "relative",
+                  transition: "all 0.3s ease",
+                  padding: "0.8rem 1.5rem",
+                  textAlign: "center",
+                }}
+              >
+                {link === "contacts"
+                  ? "Contact Me"
+                  : link.charAt(0).toUpperCase() + link.slice(1)}
+                {activeLink === link && (
+                  <span
+                    style={{
+                      position: "absolute",
+                      bottom: "0.5rem",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      height: "2px",
+                      width: "30%",
+                      background: "linear-gradient(90deg, #aa367c, #4a2fbd)",
+                      borderRadius: "2px",
+                    }}
+                  />
+                )}
+              </Nav.Link>
+            ))}
           </Nav>
         </Navbar.Collapse>
       </Container>
