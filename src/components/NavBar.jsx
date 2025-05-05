@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
+import logo from "../assets/logo/the_shield.png";
 
 const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
@@ -89,11 +90,7 @@ const NavBar = () => {
       <Container>
         <Navbar.Brand href="#home">
           <div className="logo-container">
-            <img
-              src="/src/assets/logo/the_shield.png"
-              alt="BK Logo"
-              className="logo-image"
-            />
+            <img src={logo} alt="BK Logo" className="logo-image" />
           </div>
         </Navbar.Brand>
         <Navbar.Toggle
