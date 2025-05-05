@@ -84,14 +84,16 @@ const NavBar = () => {
         transition: "all 0.3s ease-in-out",
         background: scrolled ? "rgba(18, 18, 18, 0.95)" : "transparent",
         backdropFilter: scrolled ? "blur(10px)" : "none",
-        padding: "1rem 0",
       }}
     >
       <Container>
         <Navbar.Brand href="#home">
           <div className="logo-container">
-            <span className="logo-text">B</span>
-            <span className="logo-text-k">K</span>
+            <img
+              src="/src/assets/logo/the_shield.png"
+              alt="BK Logo"
+              className="logo-image"
+            />
           </div>
         </Navbar.Brand>
         <Navbar.Toggle
@@ -100,7 +102,6 @@ const NavBar = () => {
           onClick={toggleMenu}
           style={{
             border: "none",
-            padding: "0.5rem",
             backgroundColor: "transparent",
           }}
         >
@@ -164,9 +165,7 @@ const NavBar = () => {
           style={{
             background: isMenuOpen ? "rgba(18, 18, 18, 0.95)" : "transparent",
             backdropFilter: isMenuOpen ? "blur(10px)" : "none",
-            borderRadius: isMenuOpen ? "10px" : "0",
             padding: isMenuOpen ? "1rem" : "0",
-            marginTop: isMenuOpen ? "1rem" : "0",
             transition: "all 0.3s ease-in-out",
           }}
         >

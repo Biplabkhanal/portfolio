@@ -94,10 +94,10 @@ p.danger {
 }
 /************ Navbar Css ************/
 
-.logo {
-  width: 65%;
-  height: 50%;
-  border-radius: 50%;
+.logo-image {
+  height: 70px;
+  width: auto;
+  display: block;
 }
 
 nav.navbar {
@@ -384,7 +384,7 @@ img {
     font-size: 40px;
   }
   .banner {
-    padding: 120px 0 50px 0;
+    padding: 105px 0 50px 0;
   }
 }
 
