@@ -5,6 +5,8 @@ import "animate.css";
 import TrackVisibility from "react-on-screen";
 import emailjs from "emailjs-com";
 import { FaWhatsapp } from "react-icons/fa";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const formInitialDetails = {
@@ -26,7 +28,7 @@ const Contact = () => {
     setFormDetails({ ...formDetails, [category]: value });
     if (errors[category]) {
       const updatedErrors = { ...errors };
-      delete updatedErrors[category]; // Remove error on typing
+      delete updatedErrors[category];
       setErrors(updatedErrors);
     }
   };
@@ -88,7 +90,15 @@ const Contact = () => {
       );
       setButtonText("Send");
       setFormDetails(formInitialDetails);
-      setStatus({ success: true, message: "Message sent successfully" });
+      toast.success("Message sent successfully", {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       setErrors({});
       setShowSuccess(true);
 
@@ -98,7 +108,15 @@ const Contact = () => {
       }, 6000);
     } catch (error) {
       setButtonText("Send");
-      setStatus({ success: false, message: "Failed to send message" });
+      toast.error("Failed to send message", {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       setShowError(true);
       setTimeout(() => {
         setStatus({});
@@ -109,6 +127,7 @@ const Contact = () => {
 
   return (
     <section className="contact py-5 " id="contacts">
+      <ToastContainer />
       <Container>
         <Row className="align-items-center">
           <Col size={12} md={6}>
@@ -267,34 +286,6 @@ const Contact = () => {
                         >
                           {status.message}
                         </p>
-                      </Col>
-                    )}
-                    {showSuccess && (
-                      <Col size={12} className="mt-4">
-                        <div className="success-animation text-center">
-                          <div className="success-icon-circle">
-                            <svg className="success-icon" viewBox="0 0 24 24">
-                              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
-                            </svg>
-                          </div>
-                          <h5 className="mt-3 text-success animate__animated animate__fadeIn">
-                            Message Sent Successfully!
-                          </h5>
-                        </div>
-                      </Col>
-                    )}
-                    {showError && (
-                      <Col size={12} className="mt-4">
-                        <div className="error-animation text-center">
-                          <div className="error-icon-circle">
-                            <svg className="error-icon" viewBox="0 0 24 24">
-                              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
-                            </svg>
-                          </div>
-                          <h5 className="mt-3 text-danger animate__animated animate__fadeIn">
-                            Failed to Send Message!
-                          </h5>
-                        </div>
                       </Col>
                     )}
                   </Row>
