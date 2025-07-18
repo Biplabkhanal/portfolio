@@ -128,193 +128,205 @@ const Projects = () => {
   ];
 
   return (
-    <section className="project py-lg-4 py-2" id="projects">
-      <Container>
-        <img
-          src={sphereSm}
-          alt="Decorative Sphere Small"
-          className="sphere sphere-sm"
-        />
-        <Row>
-          <Col size={12}>
-            <TrackVisibility>
-              {({ isVisible }) => (
-                <div
-                  className={
-                    isVisible ? "animate__animated animate__fadeIn" : ""
-                  }
-                >
-                  <p className="text-secondary text-uppercase tracking-wider mb-0">
-                    What I have done so far
-                  </p>
-                  <h2>
-                    <span className="highlight">Projects</span>
-                  </h2>
-                  <p id="project-intro" className="animate__animated">
-                    <b
-                      className="fs-sm-5 "
-                      style={{
-                        fontSize: window.innerWidth <= 768 ? "1rem" : "18px",
-                      }}
+    <>
+      {selectedImage && (
+        <div
+          className="modal"
+          onClick={() => setSelectedImage(null)}
+          style={{
+            display: "flex",
+            backgroundColor: "rgba(0,0,0,0.8)",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+            height: "100%",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            zIndex: 9999,
+            margin: 0,
+          }}
+        >
+          <img
+            src={selectedImage}
+            alt="Full"
+            style={{
+              maxWidth: window.innerWidth <= 768 ? "90%" : "45%",
+              maxHeight: window.innerWidth <= 768 ? "50%" : "70%",
+              borderRadius: "7px",
+              objectFit: "contain",
+            }}
+          />
+        </div>
+      )}
+      <div className={selectedImage ? "blurred-bg" : ""}>
+        <section className="project py-lg-4 py-2" id="projects">
+          <Container>
+            <img
+              src={sphereSm}
+              alt="Decorative Sphere Small"
+              className="sphere sphere-sm"
+            />
+            <Row>
+              <Col size={12}>
+                <TrackVisibility>
+                  {({ isVisible }) => (
+                    <div
+                      className={
+                        isVisible ? "animate__animated animate__fadeIn" : ""
+                      }
                     >
-                      Welcome to my Projects section! <br className="d-block" />
-                      Explore a diverse range of projects showcasing my skills
-                      and expertise in web development.
-                    </b>
-                  </p>
-                  <img
-                    src={sphereLg}
-                    alt="Decorative Sphere Large"
-                    className="sphere sphere-lg"
-                  />
-
-                  {activeTab === 1 ? (
-                    <>
-                      <Row>
-                        {projectsTab1.map((project, index) => (
-                          <ProjectCard key={index} {...project} />
-                        ))}
-                      </Row>
-                      <div className="dots-container d-flex justify-content-center mb-4 mt-4">
-                        <span
-                          className={`dot ${activeTab === 1 ? "active" : ""}`}
-                          onClick={() => setActiveTab(1)}
-                        ></span>
-                        <span
-                          className={`dot ${activeTab === 2 ? "active" : ""}`}
-                          onClick={() => setActiveTab(2)}
-                        ></span>
-                      </div>
-                      <div className="proj-link d-flex mt-4 justify-content-center">
-                        <a
-                          className="text-project"
-                          onClick={() => setActiveTab(2)}
-                          style={{ cursor: "pointer" }}
-                        >
-                          See Snapshots
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            width="24"
-                            className="arrow-icon"
-                          >
-                            <path d="M0 0h24v24H0V0z" fill="none"></path>
-                            <path
-                              d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                              fill="#9C27B0"
-                            ></path>
-                          </svg>
-                        </a>
-                      </div>
-                      <GitHubStats username="Biplabkhanal" />
-                    </>
-                  ) : (
-                    <Row className="g-4 ">
-                      {projectsTab2.map((project, index) => (
-                        <Col key={index} xs={12} className="project-tab-2">
-                          <div className="project-card d-flex flex-column align-items-center">
-                            <div className="project-images d-flex justify-content-center flex-wrap">
-                              {project.images.map((image, idx) => (
-                                <img
-                                  key={idx}
-                                  src={image}
-                                  alt={`${project.title} image ${idx + 1}`}
-                                  className="img-fluid rounded shadow mb-2"
-                                  style={{
-                                    width:
-                                      window.innerWidth <= 768
-                                        ? "95px"
-                                        : "300px",
-                                    height:
-                                      window.innerWidth <= 768
-                                        ? "85px"
-                                        : "210px",
-                                    border: "1px solid #ddd",
-                                    marginLeft:
-                                      idx !== 0
-                                        ? window.innerWidth <= 768
-                                          ? "-15px"
-                                          : "-30px"
-                                        : "0",
-                                    cursor: "pointer",
-                                    zIndex: projectsTab2.length - idx,
-                                  }}
-                                  onClick={() => setSelectedImage(image)}
-                                />
-                              ))}
-                            </div>
-                            <h5
-                              className="project-title"
-                              style={{
-                                fontSize:
-                                  window.innerWidth <= 768 ? "1rem" : "1.25rem",
-                              }}
-                            >
-                              {project.title}
-                            </h5>
-                          </div>
-                        </Col>
-                      ))}
-
-                      {selectedImage && (
-                        <div
-                          className="modal"
-                          onClick={() => setSelectedImage(null)}
+                      <p className="text-secondary text-uppercase tracking-wider mb-0">
+                        What I have done so far
+                      </p>
+                      <h2>
+                        <span className="highlight">Projects</span>
+                      </h2>
+                      <p id="project-intro" className="animate__animated">
+                        <b
+                          className="fs-sm-5 "
                           style={{
-                            display: "flex",
-                            backgroundColor: "rgba(0,0,0,0.8)",
-                            backdropFilter: "blur(5px)",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            width: "100%",
-                            height: "100%",
-                            position: "fixed",
-                            top: 0,
-                            left: 0,
-                            zIndex: 9999,
-                            margin: 0,
+                            fontSize:
+                              window.innerWidth <= 768 ? "1rem" : "18px",
                           }}
                         >
-                          <img
-                            src={selectedImage}
-                            alt="Full"
-                            style={{
-                              maxWidth:
-                                window.innerWidth <= 768 ? "90%" : "45%",
-                              maxHeight:
-                                window.innerWidth <= 768 ? "50%" : "70%",
-                              borderRadius: "7px",
-                              objectFit: "contain",
-                            }}
-                          />
-                        </div>
-                      )}
+                          Welcome to my Projects section!{" "}
+                          <br className="d-block" />
+                          Explore a diverse range of projects showcasing my
+                          skills and expertise in web development.
+                        </b>
+                      </p>
+                      <img
+                        src={sphereLg}
+                        alt="Decorative Sphere Large"
+                        className="sphere sphere-lg"
+                      />
 
-                      <div className="dots-container d-flex justify-content-center mb-4 mt-4">
-                        <span
-                          className={`dot ${activeTab === 1 ? "active" : ""}`}
-                          onClick={() => setActiveTab(1)}
-                        ></span>
-                        <span
-                          className={`dot ${activeTab === 2 ? "active" : ""}`}
-                          onClick={() => setActiveTab(2)}
-                        ></span>
-                      </div>
-                    </Row>
+                      {activeTab === 1 ? (
+                        <>
+                          <Row>
+                            {projectsTab1.map((project, index) => (
+                              <ProjectCard key={index} {...project} />
+                            ))}
+                          </Row>
+                          <div className="dots-container d-flex justify-content-center mb-4 mt-4">
+                            <span
+                              className={`dot ${
+                                activeTab === 1 ? "active" : ""
+                              }`}
+                              onClick={() => setActiveTab(1)}
+                            ></span>
+                            <span
+                              className={`dot ${
+                                activeTab === 2 ? "active" : ""
+                              }`}
+                              onClick={() => setActiveTab(2)}
+                            ></span>
+                          </div>
+                          <div className="proj-link d-flex mt-4 justify-content-center">
+                            <a
+                              className="text-project"
+                              onClick={() => setActiveTab(2)}
+                              style={{ cursor: "pointer" }}
+                            >
+                              See Snapshots
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                width="24"
+                                className="arrow-icon"
+                              >
+                                <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                <path
+                                  d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                                  fill="#9C27B0"
+                                ></path>
+                              </svg>
+                            </a>
+                          </div>
+                          <GitHubStats username="Biplabkhanal" />
+                        </>
+                      ) : (
+                        <Row className="g-4 ">
+                          {projectsTab2.map((project, index) => (
+                            <Col key={index} xs={12} className="project-tab-2">
+                              <div className="project-card d-flex flex-column align-items-center">
+                                <div className="project-images d-flex justify-content-center flex-wrap">
+                                  {project.images.map((image, idx) => (
+                                    <img
+                                      key={idx}
+                                      src={image}
+                                      alt={`${project.title} image ${idx + 1}`}
+                                      className="img-fluid rounded shadow mb-2"
+                                      style={{
+                                        width:
+                                          window.innerWidth <= 768
+                                            ? "95px"
+                                            : "300px",
+                                        height:
+                                          window.innerWidth <= 768
+                                            ? "85px"
+                                            : "210px",
+                                        border: "1px solid #ddd",
+                                        marginLeft:
+                                          idx !== 0
+                                            ? window.innerWidth <= 768
+                                              ? "-15px"
+                                              : "-30px"
+                                            : "0",
+                                        cursor: "pointer",
+                                        zIndex: projectsTab2.length - idx,
+                                      }}
+                                      onClick={() => setSelectedImage(image)}
+                                    />
+                                  ))}
+                                </div>
+                                <h5
+                                  className="project-title"
+                                  style={{
+                                    fontSize:
+                                      window.innerWidth <= 768
+                                        ? "1rem"
+                                        : "1.25rem",
+                                  }}
+                                >
+                                  {project.title}
+                                </h5>
+                              </div>
+                            </Col>
+                          ))}
+
+                          <div className="dots-container d-flex justify-content-center mb-4 mt-4">
+                            <span
+                              className={`dot ${
+                                activeTab === 1 ? "active" : ""
+                              }`}
+                              onClick={() => setActiveTab(1)}
+                            ></span>
+                            <span
+                              className={`dot ${
+                                activeTab === 2 ? "active" : ""
+                              }`}
+                              onClick={() => setActiveTab(2)}
+                            ></span>
+                          </div>
+                        </Row>
+                      )}
+                    </div>
                   )}
-                </div>
-              )}
-            </TrackVisibility>
-          </Col>
-        </Row>
-        <img
-          src={sphereMd}
-          alt="Decorative Sphere Medium"
-          className="sphere sphere-md"
-        />
-      </Container>
-    </section>
+                </TrackVisibility>
+              </Col>
+            </Row>
+            <img
+              src={sphereMd}
+              alt="Decorative Sphere Medium"
+              className="sphere sphere-md"
+            />
+          </Container>
+        </section>
+      </div>
+    </>
   );
 };
 

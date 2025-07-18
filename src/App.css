@@ -1435,3 +1435,10 @@ textarea.error {
   height: 75px;
   border-color: rgba(255, 107, 255, 0.5);
 }
+
+.blurred-bg {
+  filter: blur(20px) !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  transition: filter 0.3s;
+}
